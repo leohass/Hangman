@@ -1,8 +1,5 @@
 # depslib dependency file v1.0
-1618737334 source:c:\users\l.hasslöver\documents\my games\terraria\modloader\mod sources\hangman\hangman\main.c
+1618739406 source:c:\users\l.hasslöver\documents\my games\terraria\modloader\mod sources\hangman\hangman\main.c
 	<stdio.h>
 	<stdlib.h>
-
-1618736971 source:c:\users\l.hasslöver\documents\my games\terraria\modloader\mod sources\hangman\hangman\input_header.c
-	<stdio.h>
 

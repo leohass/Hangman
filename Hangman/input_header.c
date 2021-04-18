@@ -22,7 +22,7 @@ int inputValidation(char input[]){
         printf("input must be alphabet");
         return 0;
     }
-    printf("please enter only one character")
+    printf("please enter only one character");
     return 0;
 }
 
