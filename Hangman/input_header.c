@@ -8,9 +8,36 @@ void printGameStart(){
      " +-++-++-++-++-++-++-+ +-++-+ +-++-++-++-++-++-++-+ "
     };
 
+    char rules[4][255] = {
+        "The rules are simple",
+        " 1. You have 7 tries",
+        " 2. Only use letters of the alphabet",
+        " 3. Lose"
+    };
 
     for(int i = 0; i < 3; i ++){
         printf("%s \n", welcome[i]);
+    }
+
+    for(int i = 0; i < 4; i++ ){
+        printf("%s \n", rules[i]);
+    }
+
+}
+
+void getUserInput(char *input[],char typeOf[])){
+
+    switch(typeOf){
+        case "answer":
+            printf("pls enter a letter:");
+            fflush(stdin);
+            scanf("%s", &input);
+            break;
+        case "name":
+            printf("pls enter your name:");
+            fflush(stdin);
+            scanf("%s", &input);
+            break;
     }
 }
 
@@ -29,6 +56,7 @@ int inputValidation(char input[]){
 void printStatus(int i, char input){
 
     printHangman(i-1);
+
     printf("Sorry but %c is not what we are looking for \n", input);
 
     if(i = 1){

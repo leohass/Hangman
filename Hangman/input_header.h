@@ -20,6 +20,8 @@ int inputValidation(char input[]);
  */
 void printStatus(int i);
 
+void printHangman(int i );
+
 /*
  * Clears the console screen
  */
