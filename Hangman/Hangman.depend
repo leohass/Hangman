@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1618815615 source:e:\schule\hangman\hangman\hangman\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
