@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "file_system.h"
+#include "gui.h"
 
 const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-char player1[] = "";
+char player1[];
 //char player2[];
-char solution[] = "JULIAN"; //set solution for testing
+char solution[5] = "HALLO"; //set solution for testing
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
@@ -15,6 +17,8 @@ int start; //GetTickCount(int)
 int tries;
 char triedLetters[26] = "";
 char correctLetters[] = "";
+
+char input[];
 
 int alphabetMask[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int mistakes;
@@ -37,7 +41,7 @@ void reset_game()
         }
 }
 
-void print_solution(int solutionMask[])
+void print_solution(int solutionMask[],char solution[])
 {
     for (int i = 0; i < solutionLength; i++) {
         if (solutionMask[i] == 1)
@@ -49,10 +53,12 @@ void print_solution(int solutionMask[])
             printf("_ ");
         }
     }
+    printf("\n");
 }
 
 void print_tried_letters(int alphabetMask[])
 {
+    printf("\nTried letters: ");
     for(int m = 0; m < strlen(alphabet); m++)
     {
         if (alphabetMask[m] == 1)
@@ -61,15 +67,16 @@ void print_tried_letters(int alphabetMask[])
             printf(" ");
         }
     }
+    printf("\n");
 }
 
-void handle_try(char validInput, int solutionMask[])
+void handle_try(char validInput[], int solutionMask[])
 {
     tries++;
 
     for(int j = 0; j < 26; j++)
     {
-        if (alphabet[j] == validInput)
+        if (alphabet[j] == validInput[0])
         {
             alphabetMask[j] = 1;
         }
@@ -79,7 +86,7 @@ void handle_try(char validInput, int solutionMask[])
 
     for(int k = 0; k < solutionLength; k++)
     {
-        if (solution[k] == validInput)
+        if (solution[k] == validInput[0])
         {
             solutionMask[k] = 1;
             mistakeMade = 0;
@@ -89,6 +96,7 @@ void handle_try(char validInput, int solutionMask[])
     if (mistakeMade == 1)
     {
         mistakes++;
+        printTriesLeft(mistakes);
     }
 }
 
@@ -110,31 +118,39 @@ int main()
 {
     reset_game();
 
+    printGameStart();
+
+    getUserInput(&player1,1);
+
     solutionLength = strlen(solution);
+
     int solutionMask[solutionLength];
+
     for (int i = 0; i < solutionLength; i++) {
         solutionMask[i] = 0;
     }
 
-    while (mistakes <= maxMistakes && success == 0)
+    while (mistakes < maxMistakes && success == 0)
     {
+
+
         //hier input einbauen
-        char validInput;
-        print_solution(solutionMask);
-        printf("\n");
+        printHangman(mistakes);
+        print_solution(solutionMask, solution);
         print_tried_letters(alphabetMask);
         printf("\n");
-        printf("Mistakes: %i\n", mistakes);
-        fflush(stdout);
-        printf("Tries: %i\n", tries);
-        fflush(stdout);
-        printf("Guess: ");
-        fflush(stdout);
-        scanf(" %c", &validInput);
 
-        handle_try(validInput, solutionMask);
+        do{
+            getUserInput(&input,0);
+        }while(!inputValidation(input));
 
+        clearScreen();
+
+        printGameStart();
+
+        handle_try(input, solutionMask);
         success = check_success(solutionMask);
+
 
     }
 
