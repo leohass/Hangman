@@ -20,6 +20,8 @@ int alphabetMask[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int mistakes;
 int success = 0;
 
+int solutionLength;
+
 
 void reset_game()
 {
@@ -27,6 +29,7 @@ void reset_game()
     tries = 0;
     mistakes = 0;
     success = 0;
+    solutionLength = 0;
 
     for(int u = 0; u < strlen(alphabet); u++)
         {
@@ -34,13 +37,82 @@ void reset_game()
         }
 }
 
+void print_solution(int solutionMask[])
+{
+    for (int i = 0; i < solutionLength; i++) {
+        if (solutionMask[i] == 1)
+        {
+            printf("%c ", solution[i]);
+        }
+        else
+        {
+            printf("_ ");
+        }
+    }
+}
+
+void print_tried_letters(int alphabetMask[])
+{
+    for(int m = 0; m < strlen(alphabet); m++)
+    {
+        if (alphabetMask[m] == 1)
+        {
+            printf("%c", alphabet[m]);
+            printf(" ");
+        }
+    }
+}
+
+void handle_try(char validInput, int solutionMask[])
+{
+    tries++;
+
+    for(int j = 0; j < 26; j++)
+    {
+        if (alphabet[j] == validInput)
+        {
+            alphabetMask[j] = 1;
+        }
+    }
+
+    int mistakeMade = 1;
+
+    for(int k = 0; k < solutionLength; k++)
+    {
+        if (solution[k] == validInput)
+        {
+            solutionMask[k] = 1;
+            mistakeMade = 0;
+        }
+    }
+
+    if (mistakeMade == 1)
+    {
+        mistakes++;
+    }
+}
+
+int check_success(int solutionMask[])
+{
+    int isSuccess = 1;
+    for(int l = 0; l < solutionLength; l++)
+    {
+        if (solutionMask[l] == 0)
+        {
+            isSuccess = 0;
+        }
+    }
+
+    return isSuccess;
+}
+
 int main()
 {
     reset_game();
 
-    int length = strlen(solution);
-    int solutionMask[length];
-    for (int i = 0; i < length; i++) {
+    solutionLength = strlen(solution);
+    int solutionMask[solutionLength];
+    for (int i = 0; i < solutionLength; i++) {
         solutionMask[i] = 0;
     }
 
@@ -48,56 +120,21 @@ int main()
     {
         //hier input einbauen
         char validInput;
+        print_solution(solutionMask);
+        printf("\n");
+        print_tried_letters(alphabetMask);
+        printf("\n");
         printf("Mistakes: %i\n", mistakes);
+        fflush(stdout);
+        printf("Tries: %i\n", tries);
         fflush(stdout);
         printf("Guess: ");
         fflush(stdout);
         scanf(" %c", &validInput);
 
-        tries++;
+        handle_try(validInput, solutionMask);
 
-        for(int j = 0; j < 26; j++)
-        {
-            if (alphabet[j] == validInput)
-            {
-                alphabetMask[j] = 1;
-            }
-        }
-
-        for(int m = 0; m < strlen(alphabet); m++)
-        {
-            if (alphabetMask[m] == 1)
-            {
-                printf("%c", alphabet[m]);
-                printf(" ");
-            }
-        }
-        printf("\n");
-
-        int mistakeMade = 1;
-
-        for(int k = 0; k < length; k++)
-        {
-            if (solution[k] == validInput)
-            {
-                solutionMask[k] = 1;
-                mistakeMade = 0;
-            }
-        }
-
-        if (mistakeMade == 1)
-        {
-            mistakes++;
-        }
-
-        success = 1;
-        for(int l = 0; l < length; l++)
-        {
-            if (solutionMask[l] == 0)
-            {
-                success = 0;
-            }
-        }
+        success = check_success(solutionMask);
 
     }
 
