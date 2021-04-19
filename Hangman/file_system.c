@@ -3,43 +3,46 @@
 #include<stdbool.h>
 #include<time.h>
 
-const char* getfield(char* line, int num)
+struct my_record {
+    int id;
+    char word[255];
+};
+
+struct my_record records[100];
+
+int getSolutionLength(int id)
 {
-    const char* tok;
-    for (tok = strtok(line, ";");
-            tok && *tok;
-            tok = strtok(NULL, ";\n"))
+    for(int i = 0; i < sizeof(records); i++)
     {
-        if (!--num)
-            return tok;
+        if(records[i].id == id){
+            return strlen(records[i].word);
+        }
     }
-    return NULL;
+}
+
+char* getSolutionWord(int id)
+{
+   for(int i = 0; i < sizeof(records); i++)
+    {
+        if(records[i].id == id){
+            printf("function: %s\n", records[i].word);
+            return records[i].word;
+        }
+    }
 }
 
 
-char* getSolution()
+int getRandomSolutionId()
 {
-    FILE* stream = fopen("resources/solution.csv", "r");
+    FILE* my_file = fopen("resources/solution.csv", "r");
 
-    srand(time(NULL));
-    int number = (rand()% 5) + 1;
-    char str[255];
-    char line[255];
-
-    sprintf(str, "%d", number);
-
-    while (fgets(line, 255, stream))
+    size_t count = 0;
+    for (; count < sizeof(records)/sizeof(records[0]); ++count)
     {
-        char* tmp = strdup(line);
-        char* solution = getfield(tmp, 2);
-
-        // strtok müllt tmp zu deswegen free
-
-        if (strcmp(str, getfield(tmp, 1))== 0)
-        {
-            return solution;
-        } else {
-            free(tmp);
-        }
+        int got = fscanf(my_file, "%d;%s", &records[count].id, &records[count].word);
+        if (got != 2) break; // wrong number of tokens - maybe end of file
     }
+    srand(time(NULL));
+    int number = (rand()% 5);
+    return records[number].id;
 }
