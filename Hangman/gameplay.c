@@ -3,7 +3,8 @@
 
 void print_solution(int solutionMask[],char solution[])
 {
-    for (int i = 0; i < strlen(solution); i++) {
+    for (int i = 0; i < strlen(solution); i++)
+    {
         if (solutionMask[i] == 1)
         {
             printf("%c ", solution[i]);
@@ -30,13 +31,13 @@ void print_tried_letters(int alphabetMask[], int alphabetMaskLength, char alphab
     printf("\n");
 }
 
-void handle_try(int tries,
-                char alphabet[],
-                int alphabetMask[],
-                char validInput[],
-                int solutionMask[],
-                char solution[],
-                int mistakes)
+void handle_guess(int tries,
+                  char alphabet[],
+                  int alphabetMask[],
+                  char validInput[],
+                  int solutionMask[],
+                  char solution[],
+                  int mistakes)
 {
     tries++;
 

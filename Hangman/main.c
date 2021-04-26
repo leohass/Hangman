@@ -11,7 +11,6 @@ const int alphabetLength = 26;
 
 int alphabetMask[26];
 int tries;
-char triedLetters[26];
 
 char player1[];
 //char player2[];
@@ -46,10 +45,9 @@ int main()
 
     getUserInput(&player1,1);
 
+    // initialize solutionMask from length of solution
     int solutionLength = strlen(solution);
-
     int solutionMask[solutionLength];
-
     for (int i = 0; i < solutionLength; i++)
     {
         solutionMask[i] = 0;
@@ -73,7 +71,7 @@ int main()
 
         printGameStart();
 
-        handle_try(tries, alphabet, alphabetMask, input, solutionMask, solution, mistakes);
+        handle_guess(tries, alphabet, alphabetMask, input, solutionMask, solution, mistakes);
         success = check_success(solutionMask, solutionLength);
 
 
