@@ -31,13 +31,13 @@ void print_tried_letters(int alphabetMask[], int alphabetMaskLength, char alphab
     printf("\n");
 }
 
-void handle_guess(int tries,
+void handle_guess(int *tries,
                   char alphabet[],
                   int alphabetMask[],
                   char validInput[],
                   int solutionMask[],
                   char solution[],
-                  int mistakes)
+                  int *mistakes)
 {
     tries++;
 

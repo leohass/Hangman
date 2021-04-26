@@ -17,13 +17,13 @@ void print_tried_letters(int alphabetMask[], int alphabetMaskLength, char alphab
  * The function increments the tries, marks the guess as a tried letter via the alphabetMask,
  * validates the guess, if it is part of the solution and increments the mistakes if not.
  */
- void handle_guess(int tries,
+ void handle_guess(int* tries,
                    char alphabet[],
                    int alphabetMask[],
                    char validInput[],
                    int solutionMask[],
                    char solution[],
-                   int mistakes);
+                   int* mistakes);
 
 /*
  * checks for a successfully completion of the game.

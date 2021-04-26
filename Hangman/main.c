@@ -21,7 +21,7 @@ int start; //GetTickCount(int)
 
 char input[];
 
-int mistakes;
+int mistakes = 0;
 int success = 0;
 
 void reset_game()
@@ -71,8 +71,11 @@ int main()
 
         printGameStart();
 
-        handle_guess(tries, alphabet, alphabetMask, input, solutionMask, solution, mistakes);
+        handle_guess(&tries, alphabet, alphabetMask, input, solutionMask, solution, &mistakes);
         success = check_success(solutionMask, solutionLength);
+
+        printf("Mistakes: %i\n", mistakes);
+        printf("Tries: %i\n", tries);
 
 
     }
