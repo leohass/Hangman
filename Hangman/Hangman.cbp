@@ -31,10 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="input_header.c">
+		<Unit filename="file_system.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="input_header.h" />
+		<Unit filename="file_system.h" />
+		<Unit filename="gameplay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gameplay.h" />
+		<Unit filename="gui.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gui.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -19,3 +19,30 @@
 
 1618842633 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\gui.h
 
+1618845136 source:e:\schule\hangman\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1618845136 source:e:\schule\hangman\hangman\hangman\gui.c
+	<stdio.h>
+
+1619423559 source:e:\schule\hangman\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+
+1618845136 e:\schule\hangman\hangman\hangman\file_system.h
+
+1618845136 e:\schule\hangman\hangman\hangman\gui.h
+
+1619422600 source:e:\schule\hangman\hangman\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1619423110 e:\schule\hangman\hangman\hangman\gameplay.h
+
