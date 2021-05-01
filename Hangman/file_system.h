@@ -19,7 +19,7 @@ Returns the word you need as an char pointer you need to call it like that
 char* getSolutionWord(int id);
 
 /*
-Saves the playername the csv file
+Saves the playername and his points to the csv
 */
-void savePlayerName(char[] playerName)
+void savePlayerHighscore(char[] playerName, int points)
 #endif // FILE_SYSTEM_H_INCLUDED

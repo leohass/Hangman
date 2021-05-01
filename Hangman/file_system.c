@@ -49,13 +49,20 @@ int getRandomSolutionId()
     return records[number].id;
 }
 
-void savePlayerName(char name[])
+void savePlayerHighscore(char name[], int pointsInt)
 {
     FILE* file = fopen("resources/playerName.csv", "a+");
 
-    char endline[] = ";\n";
-    fwrite(name,1,sizeof(name), file);
-    fwrite(endline,1,sizeof(endline)-1, file);  // sieof(endline) -1 so we dont write the a null into the txt file
+    char simi[] = ";";
+    char endline[] = "\n";
+
+    char points[sizeof(pointsInt)];
+    sprintf(points,"%d",pointsInt);
+
+    fwrite(name,1,strlen(name), file);
+    fwrite(simi,1,strlen(simi), file);
+    fwrite(points,1,strlen(points), file);
+    fwrite(endline,1,strlen(endline), file);
 
     fclose(file);
 }
