@@ -17,4 +17,9 @@ Returns the word you need as an char pointer you need to call it like that
     str is where you want it to go
 */
 char* getSolutionWord(int id);
+
+/*
+Saves the playername the csv file
+*/
+void savePlayerName(char[] playerName)
 #endif // FILE_SYSTEM_H_INCLUDED
