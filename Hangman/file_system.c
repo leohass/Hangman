@@ -34,15 +34,28 @@ char* getSolutionWord(int id)
 
 int getRandomSolutionId()
 {
-    FILE* my_file = fopen("resources/solution.csv", "r");
+    FILE* file = fopen("resources/solution.csv", "r");
 
     size_t count = 0;
     for (; count < sizeof(records)/sizeof(records[0]); ++count)
     {
-        int got = fscanf(my_file, "%d;%s", &records[count].id, &records[count].word);
+        int got = fscanf(file, "%d;%s", &records[count].id, &records[count].word);
         if (got != 2) break; // wrong number of tokens - maybe end of file
     }
     srand(time(NULL));
-    int number = (rand()% 5);
+    int number = (rand()% 7);
+    printf("number %i\n",number);
+    fclose(file);
     return records[number].id;
+}
+
+void savePlayerName(char name[])
+{
+    FILE* file = fopen("resources/playerName.csv", "a+");
+
+    char endline[] = ";\n";
+    fwrite(name,1,sizeof(name), file);
+    fwrite(endline,1,sizeof(endline)-1, file);  // sieof(endline) -1 so we dont write the a null into the txt file
+
+    fclose(file);
 }
