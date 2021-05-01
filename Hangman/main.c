@@ -4,6 +4,7 @@
 #include "file_system.h"
 #include "gui.h"
 #include "gameplay.h"
+#include <time.h>
 
 const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -45,6 +46,8 @@ int main()
 
     getUserInput(&player1,1);
 
+    clock_t begin = clock();
+
     // initialize solutionMask from length of solution
     int solutionLength = strlen(solution);
     int solutionMask[solutionLength];
@@ -79,14 +82,15 @@ int main()
 
 
     }
-
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
     if (success == 1)
     {
-        printf("\nWin!");
+        printf("\nWin - Time %f !", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
-        printf("\nLose :(");
+        printf("\nLose - Time %f !", time_spent / CLOCKS_PER_SEC);
     }
 
 

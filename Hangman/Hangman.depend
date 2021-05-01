@@ -46,3 +46,30 @@
 
 1619427759 e:\schule\hangman\hangman\hangman\gameplay.h
 
+1619858066 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1619859130 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1619858066 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.c
+	<stdio.h>
+
+1619858239 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+
+1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.h
+
+1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.h
+
+1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.h
+

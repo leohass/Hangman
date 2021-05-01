@@ -39,8 +39,7 @@ void handle_guess(int *tries,
                   char solution[],
                   int *mistakes)
 {
-    tries++;
-
+    ++(*tries);
     for(int j = 0; j < 26; j++)
     {
         if (alphabet[j] == validInput[0])
@@ -62,7 +61,7 @@ void handle_guess(int *tries,
 
     if (mistakeMade == 1)
     {
-        mistakes++;
+        ++(*mistakes);
         printTriesLeft(mistakes);
     }
 }
