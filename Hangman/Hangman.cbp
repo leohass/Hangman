@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Hangman.cbp" />
+		<Unit filename="Hangman.layout" />
 		<Unit filename="file_system.c">
 			<Option compilerVar="CC" />
 		</Unit>
