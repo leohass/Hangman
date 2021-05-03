@@ -91,7 +91,7 @@ int main()
 
         clock_t stamp = clock();
         double timeStamp = (double)(stamp - begin);
-        printf("Time: %f\n", timeStamp / CLOCKS_PER_SEC);
+        printf("Time: %f seconds\n", timeStamp / CLOCKS_PER_SEC);
         printf("Mistakes: %i\n", mistakes);
         printf("Tries: %i\n", tries);
 
