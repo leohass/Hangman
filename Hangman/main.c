@@ -89,6 +89,9 @@ int main()
         handle_guess(&tries, alphabet, alphabetLength, alphabetMask, input, solutionMask, solution, &mistakes);
         success = check_success(solutionMask, solutionLength);
 
+        clock_t stamp = clock();
+        double timeStamp = (double)(stamp - begin);
+        printf("Time: %f\n", timeStamp / CLOCKS_PER_SEC);
         printf("Mistakes: %i\n", mistakes);
         printf("Tries: %i\n", tries);
 
@@ -99,12 +102,12 @@ int main()
     if (success == 1)
     {
         printf("\nWin - the solution is: %s", &solution);
-        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
+        printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
         printf("\nLose - the solution is: %s", &solution);
-        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
+        printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
     }
 
     save_player_highscore(player1,time_spent / CLOCKS_PER_SEC);

@@ -43,7 +43,6 @@ char* get_solution_word(int id)
     {
         if(records[i].id == id)
         {
-            printf("function: %s\n", records[i].word);
             return records[i].word;
         }
     }
@@ -67,7 +66,6 @@ int get_random_solution_id()
     }
     srand(time(NULL));
     int number = (rand()% 7);
-    printf("number %i\n",number);
     fclose(file);
     return records[number].id;
 }

@@ -11,7 +11,7 @@ void printGameStart(){
     char rules[4][255] = {
         "The rules are simple",
         " 1. You have 7 tries",
-        " 2. Only use letters of the alphabet",
+        " 2. Only use uppercase letters of the alphabet",
         " 3. Lose"
     };
 
@@ -31,13 +31,13 @@ void getUserInput(char *input[],int typeOf){
 
     switch(typeOf){
         case 0:
-            printf("pls enter a letter:");
+            printf("Please enter a letter:");
             fflush(stdin);
             scanf("%s", input);
 
             break;
         case 1:
-            printf("pls enter your name:");
+            printf("Please enter your name:");
             fflush(stdin);
             scanf("%s", input);
             break;
