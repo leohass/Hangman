@@ -51,7 +51,7 @@ int getRandomSolutionId()
 
 void savePlayerHighscore(char name[], int pointsInt)
 {
-    FILE* file = fopen("resources/playerName.csv", "a+");
+    FILE* file = fopen("resources/playerHighscore.csv", "a+");
 
     char simi[] = ";";
     char endline[] = "\n";
