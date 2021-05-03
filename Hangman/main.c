@@ -11,19 +11,18 @@ const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const int alphabetLength = 26;
 
-int alphabetMask[26];
+int alphabetMask[26]; //used for validating guessed letters
 int tries;
 
 char player1[];
-//char player2[];
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
 
 char input[];
 
-int mistakes = 0;
-int success = 0;
+int mistakes = 0; //used as boolean
+int success = 0; //used as boolean
 
 void reset_game()
 {
@@ -49,9 +48,10 @@ int main()
     strcpy(solution, get_solution_word(id));
 
     int i = 0;
-    while(solution[i]) {
-      solution[i] = (toupper(solution[i]));
-      i++;
+    while(solution[i])
+    {
+        solution[i] = (toupper(solution[i]));
+        i++;
     }
 
     printGameStart();
