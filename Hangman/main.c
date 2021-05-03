@@ -5,6 +5,7 @@
 #include "gui.h"
 #include "gameplay.h"
 #include <time.h>
+#include <ctype.h>
 
 const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -46,6 +47,8 @@ int main()
     char solution[getSolutionLength(id)];
 
     strcpy(solution, getSolutionWord(id));
+
+    toupper(solution);
 
     printGameStart();
 
