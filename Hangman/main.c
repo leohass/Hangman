@@ -1,27 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "file_system.h"
+#include "gui.h"
+#include "gameplay.h"
+#include <time.h>
 
 const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const int alphabetLength = 26;
 
-char player1[] = "";
+int alphabetMask[26];
+int tries;
+
+char player1[];
 //char player2[];
-char solution[] = "JULIAN"; //set solution for testing
+char solution[5] = "HALLO"; //set solution for testing
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
 
-int tries;
-char triedLetters[26] = "";
-char correctLetters[] = "";
+char input[];
 
-int alphabetMask[26] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-int mistakes;
+int mistakes = 0;
 int success = 0;
-
-int solutionLength;
-
 
 void reset_game()
 {
@@ -29,121 +31,66 @@ void reset_game()
     tries = 0;
     mistakes = 0;
     success = 0;
-    solutionLength = 0;
 
-    for(int u = 0; u < strlen(alphabet); u++)
-        {
-            alphabetMask[u] = 0;
-        }
-}
-
-void print_solution(int solutionMask[])
-{
-    for (int i = 0; i < solutionLength; i++) {
-        if (solutionMask[i] == 1)
-        {
-            printf("%c ", solution[i]);
-        }
-        else
-        {
-            printf("_ ");
-        }
-    }
-}
-
-void print_tried_letters(int alphabetMask[])
-{
-    for(int m = 0; m < strlen(alphabet); m++)
+    for(int u = 0; u < alphabetLength; u++)
     {
-        if (alphabetMask[m] == 1)
-        {
-            printf("%c", alphabet[m]);
-            printf(" ");
-        }
+        alphabetMask[u] = 0;
     }
-}
-
-void handle_try(char validInput, int solutionMask[])
-{
-    tries++;
-
-    for(int j = 0; j < 26; j++)
-    {
-        if (alphabet[j] == validInput)
-        {
-            alphabetMask[j] = 1;
-        }
-    }
-
-    int mistakeMade = 1;
-
-    for(int k = 0; k < solutionLength; k++)
-    {
-        if (solution[k] == validInput)
-        {
-            solutionMask[k] = 1;
-            mistakeMade = 0;
-        }
-    }
-
-    if (mistakeMade == 1)
-    {
-        mistakes++;
-    }
-}
-
-int check_success(int solutionMask[])
-{
-    int isSuccess = 1;
-    for(int l = 0; l < solutionLength; l++)
-    {
-        if (solutionMask[l] == 0)
-        {
-            isSuccess = 0;
-        }
-    }
-
-    return isSuccess;
 }
 
 int main()
 {
     reset_game();
 
-    solutionLength = strlen(solution);
+    printGameStart();
+
+    getUserInput(&player1,1);
+
+    clock_t begin = clock();
+
+    // initialize solutionMask from length of solution
+    int solutionLength = strlen(solution);
     int solutionMask[solutionLength];
-    for (int i = 0; i < solutionLength; i++) {
+    for (int i = 0; i < solutionLength; i++)
+    {
         solutionMask[i] = 0;
     }
 
-    while (mistakes <= maxMistakes && success == 0)
+    while (mistakes < maxMistakes && success == 0)
     {
         //hier input einbauen
-        char validInput;
-        print_solution(solutionMask);
+        printHangman(mistakes);
+        print_solution(solutionMask, solution);
+        print_tried_letters(alphabetMask, alphabetLength, alphabet);
         printf("\n");
-        print_tried_letters(alphabetMask);
-        printf("\n");
+
+        do
+        {
+            getUserInput(&input,0);
+        }
+        while(!inputValidation(input));
+
+        clearScreen();
+
+        printGameStart();
+
+        handle_guess(&tries, alphabet, alphabetMask, input, solutionMask, solution, &mistakes);
+        success = check_success(solutionMask, solutionLength);
+
         printf("Mistakes: %i\n", mistakes);
-        fflush(stdout);
         printf("Tries: %i\n", tries);
-        fflush(stdout);
-        printf("Guess: ");
-        fflush(stdout);
-        scanf(" %c", &validInput);
 
-        handle_try(validInput, solutionMask);
-
-        success = check_success(solutionMask);
 
     }
-
-    if (success == 1) {
-        printf("\nWin!");
+    clock_t end = clock();
+    double time_spent = (double)(end - begin);
+    if (success == 1)
+    {
+        printf("\nWin - Time %f !", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
-        printf("\nLose :(");
+        printf("\nLose - Time %f !", time_spent / CLOCKS_PER_SEC);
     }
 
 

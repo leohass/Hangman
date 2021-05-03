@@ -14,11 +14,25 @@ void printGameStart();
 int inputValidation(char input[]);
 
 /*
- * Requires Fails as parameter
- * Prints out current Hangman Ascii
+ * Requires mistakes as parameter
  * prints out fails and tries left
  */
-void printStatus(int i);
+void printTriesLeft(int mistakes);
+
+/*
+ * Requires mistakes as parameter
+ * Prints out current Hangman Ascii
+ */
+void printHangman(int mistakes);
+
+ /*
+  *Writes user input to pointer,
+  *Expects type of input
+  *Type 0 is a user guess
+  *Type 1 is a username
+  */
+void getUserInput(char *input[],int typeOf);
+
 
 /*
  * Clears the console screen
