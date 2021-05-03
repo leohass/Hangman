@@ -65,7 +65,6 @@ int get_random_solution_id()
         if (got != 2) break; // wrong number of tokens - maybe end of file
     }
     srand(time(NULL));
-
     int amountSolutions = 0;
     while(true)
     {
