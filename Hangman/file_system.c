@@ -9,7 +9,7 @@ struct solution
     char word[255];
 };
 
-struct solution records[100];
+struct solution records[1000];
 
 /**
  * returns the length of the solution word
@@ -43,7 +43,6 @@ char* get_solution_word(int id)
     {
         if(records[i].id == id)
         {
-            printf("function: %s\n", records[i].word);
             return records[i].word;
         }
     }
@@ -66,8 +65,20 @@ int get_random_solution_id()
         if (got != 2) break; // wrong number of tokens - maybe end of file
     }
     srand(time(NULL));
-    int number = (rand()% 7);
-    printf("number %i\n",number);
+
+    int amountSolutions = 0;
+    while(true)
+    {
+        if (records[amountSolutions].id != NULL)
+        {
+            amountSolutions++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    int number = (rand()% amountSolutions);
     fclose(file);
     return records[number].id;
 }
