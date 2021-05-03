@@ -25,26 +25,27 @@
 	<stdbool.h>
 	<time.h>
 
-1618845136 source:e:\schule\hangman\hangman\hangman\gui.c
+1619429349 source:e:\schule\hangman\hangman\hangman\gui.c
 	<stdio.h>
 
-1619427914 source:e:\schule\hangman\hangman\hangman\main.c
+1620031026 source:e:\schule\hangman\hangman\hangman\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"file_system.h"
 	"gui.h"
 	"gameplay.h"
+	<time.h>
 
 1618845136 e:\schule\hangman\hangman\hangman\file_system.h
 
-1618845136 e:\schule\hangman\hangman\hangman\gui.h
+1619429349 e:\schule\hangman\hangman\hangman\gui.h
 
-1619427759 source:e:\schule\hangman\hangman\hangman\gameplay.c
+1620031026 source:e:\schule\hangman\hangman\hangman\gameplay.c
 	<stdio.h>
 	<string.h>
 
-1619427759 e:\schule\hangman\hangman\hangman\gameplay.h
+1620031026 e:\schule\hangman\hangman\hangman\gameplay.h
 
 1619858066 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.c
 	<stdio.h>

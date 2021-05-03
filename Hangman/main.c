@@ -82,7 +82,7 @@ int main()
 
         printGameStart();
 
-        handle_guess(&tries, alphabet, alphabetMask, input, solutionMask, solution, &mistakes);
+        handle_guess(&tries, alphabet, alphabetLength, alphabetMask, input, solutionMask, solution, &mistakes);
         success = check_success(solutionMask, solutionLength);
 
         printf("Mistakes: %i\n", mistakes);
