@@ -21,5 +21,5 @@ char* getSolutionWord(int id);
 /*
 Saves the playername and his points to the csv
 */
-void savePlayerHighscore(char playerName[], int points);
+void savePlayerHighscore(char playerName[], double points);
 #endif // FILE_SYSTEM_H_INCLUDED

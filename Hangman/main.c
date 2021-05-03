@@ -15,7 +15,6 @@ int tries;
 
 char player1[];
 //char player2[];
-char solution[5] = "HALLO"; //set solution for testing
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
@@ -41,6 +40,12 @@ void reset_game()
 int main()
 {
     reset_game();
+
+    int id = getRandomSolutionId();
+
+    char solution[getSolutionLength(id)];
+
+    strcpy(solution, getSolutionWord(id));
 
     printGameStart();
 
@@ -93,6 +98,7 @@ int main()
         printf("\nLose - Time %f !", time_spent / CLOCKS_PER_SEC);
     }
 
+    savePlayerHighscore(player1,time_spent / CLOCKS_PER_SEC);
 
     return 0;
 }

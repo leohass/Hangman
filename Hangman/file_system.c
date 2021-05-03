@@ -49,15 +49,15 @@ int getRandomSolutionId()
     return records[number].id;
 }
 
-void savePlayerHighscore(char name[], int pointsInt)
+void savePlayerHighscore(char name[], double pointsNumber)
 {
     FILE* file = fopen("resources/playerName.csv", "a+");
 
     char simi[] = ";";
     char endline[] = "\n";
 
-    char points[sizeof(pointsInt)];
-    sprintf(points,"%d",pointsInt);
+    char points[sizeof(pointsNumber)];
+    sprintf(points,"%f",pointsNumber);
 
     fwrite(name,1,strlen(name), file);
     fwrite(simi,1,strlen(simi), file);
