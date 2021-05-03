@@ -42,13 +42,17 @@ int main()
 {
     reset_game();
 
-    int id = getRandomSolutionId();
+    int id = get_random_solution_id();
 
-    char solution[getSolutionLength(id)];
+    char solution[get_solution_length(id)];
 
-    strcpy(solution, getSolutionWord(id));
+    strcpy(solution, get_solution_word(id));
 
-    toupper(solution);
+    int i = 0;
+    while(solution[i]) {
+      solution[i] = (toupper(solution[i]));
+      i++;
+    }
 
     printGameStart();
 
@@ -94,14 +98,16 @@ int main()
     double time_spent = (double)(end - begin);
     if (success == 1)
     {
-        printf("\nWin - Time %f !", time_spent / CLOCKS_PER_SEC);
+        printf("\nWin - the solution is: %s", &solution);
+        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
-        printf("\nLose - Time %f !", time_spent / CLOCKS_PER_SEC);
+        printf("\nLose - the solution is: %s", &solution);
+        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
     }
 
-    savePlayerHighscore(player1,time_spent / CLOCKS_PER_SEC);
+    save_player_highscore(player1,time_spent / CLOCKS_PER_SEC);
 
     return 0;
 }

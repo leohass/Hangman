@@ -3,36 +3,59 @@
 #include<stdbool.h>
 #include<time.h>
 
-struct my_record {
+struct solution
+{
     int id;
     char word[255];
 };
 
-struct my_record records[100];
+struct solution records[100];
 
-int getSolutionLength(int id)
+/**
+ * returns the length of the solution word
+ *
+ * @param int id, the word you are looking for
+ * @return int, the length of the word
+**/
+int get_solution_length(int id)
 {
     for(int i = 0; i < sizeof(records); i++)
     {
-        if(records[i].id == id){
+        if(records[i].id == id)
+        {
             return strlen(records[i].word);
         }
     }
 }
-
-char* getSolutionWord(int id)
+/**
+  * is running over all the records to find a match in the record
+  * where the id is the given id
+  *
+  * strcpy(str, getSolutionWord(id)); you need to use to get the word into
+  * a char array
+  *
+  * @param int id, from the word you are looking
+  * @return the word as a char*
+**/
+char* get_solution_word(int id)
 {
-   for(int i = 0; i < sizeof(records); i++)
+    for(int i = 0; i < sizeof(records); i++)
     {
-        if(records[i].id == id){
+        if(records[i].id == id)
+        {
             printf("function: %s\n", records[i].word);
             return records[i].word;
         }
     }
 }
 
-
-int getRandomSolutionId()
+/**
+  * reading the solution file and saves every found solution into the solution
+  * struct
+  *
+  * @return int, a random id which can be used to get the word out of the struct
+**/
+int get_random_solution_id()
 {
     FILE* file = fopen("resources/solution.csv", "r");
 
@@ -48,10 +71,17 @@ int getRandomSolutionId()
     fclose(file);
     return records[number].id;
 }
-
-void savePlayerHighscore(char name[], double pointsNumber)
+/**
+  * saves the PlayerName and his time into the file,
+  *
+  *
+  * @param char name[], the playerName
+  * @param double pointsNumber, the time
+  *
+**/
+void save_player_highscore(char name[], double pointsNumber)
 {
-    FILE* file = fopen("resources/playerName.csv", "a+");
+    FILE* file = fopen("resources/playerHighscore.csv", "a+");
 
     char simi[] = ";";
     char endline[] = "\n";

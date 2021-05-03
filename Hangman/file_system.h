@@ -1,25 +1,18 @@
+/**
+*   Title: Hangman - Filesystem header
+*   Date: 03.05.2021
+*   Author: Wilhelm Adam
+**/
+
 #ifndef FILE_SYSTEM_H_INCLUDED
 #define FILE_SYSTEM_H_INCLUDED
 
-/*
-Returns a random id from the csv
-*/
-int getRandomSolutionId();
+int get_random_solution_id();
 
-/*
-Returns the length of the word which has that id
-*/
-int getSolutionLength(int id);
-/*
-Returns the word you need as an char pointer you need to call it like that
-    strcpy(str, getSolutionWord(id));
+int get_solution_length(int id);
 
-    str is where you want it to go
-*/
-char* getSolutionWord(int id);
+char* get_solution_word(int id);
 
-/*
-Saves the playername and his points to the csv
-*/
-void savePlayerHighscore(char playerName[], double points);
+void save_player_highscore(char playerName[], double points);
+
 #endif // FILE_SYSTEM_H_INCLUDED
