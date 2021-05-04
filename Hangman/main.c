@@ -93,7 +93,7 @@ int main()
         double timeStamp = (double)(stamp - begin);
         printf("Time: %f seconds\n", timeStamp / CLOCKS_PER_SEC);
 
-        printTriesLeft(mistakes);
+        print_tries_left(mistakes);
         printf("Tries: %i\n", tries);
 
     }

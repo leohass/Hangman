@@ -107,7 +107,7 @@ void handle_guess(int *tries,
     if (mistakeMade == 1)
     {
         ++(*mistakes);
-        printTriesLeft(mistakes);
+        print_tries_left(mistakes);
     }
 }
 
