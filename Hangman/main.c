@@ -11,18 +11,19 @@ const int maxMistakes = 7;
 const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const int alphabetLength = 26;
 
-int alphabetMask[26]; //used for validating guessed letters
+int alphabetMask[26];
 int tries;
 
-char player1[] = "";
+char player1[];
+//char player2[];
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
 
-char input[] = "";
+char input[];
 
-int mistakes = 0; //used as boolean
-int success = 0; //used as boolean
+int mistakes = 0;
+int success = 0;
 
 void reset_game()
 {
@@ -48,15 +49,14 @@ int main()
     strcpy(solution, get_solution_word(id));
 
     int i = 0;
-    while(solution[i])
-    {
-        solution[i] = (toupper(solution[i]));
-        i++;
+    while(solution[i]) {
+      solution[i] = (toupper(solution[i]));
+      i++;
     }
 
-    printGameStart();
+    print_game_start();
 
-    getUserInput(strlen(player1),&player1,1);
+    get_user_input(&player1,1);
 
     clock_t begin = clock();
 
@@ -71,47 +71,43 @@ int main()
     while (mistakes < maxMistakes && success == 0)
     {
         //hier input einbauen
-        printHangman(mistakes);
+        print_hangman(mistakes);
         print_solution(solutionMask, solution);
         print_tried_letters(alphabetMask, alphabetLength, alphabet);
         printf("\n");
 
         do
         {
-            getUserInput(strlen(player1),&input,0);
+            get_user_input(&input,0);
         }
         while(!inputValidation(input));
 
-        clearScreen();
+        clear_screen();
 
-        printGameStart();
+        print_game_start();
 
-        handle_guess(&tries, alphabet, alphabetLength, alphabetMask, input, solutionMask, solution, &mistakes);
+        handle_guess(&tries, alphabet, alphabetMask, input, solutionMask, solution, &mistakes);
         success = check_success(solutionMask, solutionLength);
 
-        clock_t stamp = clock();
-        double timeStamp = (double)(stamp - begin);
-        printf("Time: %f seconds\n", timeStamp / CLOCKS_PER_SEC);
-
-        printTriesLeft(mistakes);
-
+        printf("Mistakes: %i\n", mistakes);
         printf("Tries: %i\n", tries);
+
 
     }
     clock_t end = clock();
     double time_spent = (double)(end - begin);
     if (success == 1)
     {
-        printf("\nWin - the solution is: %s",(char*)solution);
-        printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
+        printf("\nWin - the solution is: %s", &solution);
+        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
-        printf("\nLose - the solution is: %s", (char*)solution);
-        printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
+        printf("\nLose - the solution is: %s", &solution);
+        printf("\nYour time was: %f !", time_spent / CLOCKS_PER_SEC);
     }
 
-    save_player_highscore(player1,time_spent / CLOCKS_PER_SEC);
+    save_player_highscore(player1,time_spent / CLOCKS_PER_SEC, tries);
 
     return 0;
 }
