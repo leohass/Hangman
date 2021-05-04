@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdbool.h>
-#include<time.h>
+#include <time.h>
 
 struct solution
 {
@@ -87,22 +87,31 @@ int get_random_solution_id()
   *
   *
   * @param char name[], the playerName
-  * @param double pointsNumber, the time
+  * @param double timeChar, the time
+  * @param double tries, the tries
   *
 **/
-void save_player_highscore(char name[], double pointsNumber)
+void save_player_highscore(char name[], double time, int tries)
 {
     FILE* file = fopen("resources/playerHighscore.csv", "a+");
 
     char simi[] = ";";
     char endline[] = "\n";
 
-    char points[sizeof(pointsNumber)];
-    sprintf(points,"%f",pointsNumber);
+    char timeChar[sizeof(time)];
+    sprintf(timeChar,"%f",time);
+
+    char triesChar[sizeof(tries)];
+    sprintf(triesChar,"%f",tries);
+
 
     fwrite(name,1,strlen(name), file);
     fwrite(simi,1,strlen(simi), file);
-    fwrite(points,1,strlen(points), file);
+
+    fwrite(timeChar,1,strlen(timeChar), file);
+    fwrite(simi,1,strlen(simi), file);
+
+    fwrite(triesChar,1,strlen(triesChar), file);
     fwrite(endline,1,strlen(endline), file);
 
     fclose(file);

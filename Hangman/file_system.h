@@ -13,6 +13,6 @@ int get_solution_length(int id);
 
 char* get_solution_word(int id);
 
-void save_player_highscore(char playerName[], double points);
+void save_player_highscore(char name[], double time, int tries)
 
 #endif // FILE_SYSTEM_H_INCLUDED
