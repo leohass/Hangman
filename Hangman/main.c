@@ -14,12 +14,12 @@ const int alphabetLength = 26;
 int alphabetMask[26]; //used for validating guessed letters
 int tries;
 
-char player1[];
+char player1[] = "";
 char hangmanPrint[] = "";
 
 int start; //GetTickCount(int)
 
-char input[];
+char input[] = "";
 
 int mistakes = 0; //used as boolean
 int success = 0; //used as boolean
@@ -56,6 +56,8 @@ int main()
 
     printGameStart();
 
+    //this will throw a incompatible pointer type warning as we are passing an array of undefined size
+    // We weren't able to figure out a workaround for this
     getUserInput(&player1,1);
 
     clock_t begin = clock();
@@ -78,6 +80,8 @@ int main()
 
         do
         {
+            //this will throw a incompatible pointer type warning as we are passing an array of undefined size
+            // We weren't able to figure out a workaround for this
             getUserInput(&input,0);
         }
         while(!inputValidation(input));
@@ -92,9 +96,10 @@ int main()
         clock_t stamp = clock();
         double timeStamp = (double)(stamp - begin);
         printf("Time: %f seconds\n", timeStamp / CLOCKS_PER_SEC);
-        printf("Mistakes: %i\n", mistakes);
-        printf("Tries: %i\n", tries);
 
+        printTriesLeft(mistakes);
+
+        printf("Tries: %i\n", tries);
 
     }
     clock_t end = clock();

@@ -48,32 +48,34 @@
 
 1620034383 e:\schule\hangman\hangman\hangman\gameplay.h
 
-1619858066 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.c
+1620146739 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.c
 	<stdio.h>
 	<string.h>
 	<stdbool.h>
 	<time.h>
 
-1619859130 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.c
+1620146739 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.c
 	<stdio.h>
 	<string.h>
 
-1619858066 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.c
+1620147046 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.c
 	<stdio.h>
 
-1619858239 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\main.c
+1620147443 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"file_system.h"
 	"gui.h"
 	"gameplay.h"
+	<time.h>
+	<ctype.h>
 
-1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.h
+1620146739 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.h
 
-1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.h
+1620147105 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.h
 
-1619858066 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.h
+1620146739 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.h
 
 1620037153 source:e:\schule\hangman\hangman\hangman\file_system.h
 
