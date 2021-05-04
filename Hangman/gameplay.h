@@ -9,10 +9,10 @@
 
 void print_solution(int solutionMask[],char solution[]);
 
-void print_tried_letters(int alphabetMask[], int alphabetMaskLength, char alphabet[]);
+void print_tried_letters(int alphabetMask[], int alphabetMaskLength,const char alphabet[]);
 
 void handle_guess(int* tries,
-                   char alphabet[],
+                   const char alphabet[],
                    int alphabetLength,
                    int alphabetMask[],
                    char validInput[],

@@ -56,9 +56,7 @@ int main()
 
     printGameStart();
 
-    //this will throw a incompatible pointer type warning as we are passing an array of undefined size
-    // We weren't able to figure out a workaround for this
-    getUserInput(&player1,1);
+    getUserInput(strlen(player1),&player1,1);
 
     clock_t begin = clock();
 
@@ -80,9 +78,7 @@ int main()
 
         do
         {
-            //this will throw a incompatible pointer type warning as we are passing an array of undefined size
-            // We weren't able to figure out a workaround for this
-            getUserInput(&input,0);
+            getUserInput(strlen(player1),&input,0);
         }
         while(!inputValidation(input));
 
@@ -106,12 +102,12 @@ int main()
     double time_spent = (double)(end - begin);
     if (success == 1)
     {
-        printf("\nWin - the solution is: %s", &solution);
+        printf("\nWin - the solution is: %s",(char*)solution);
         printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
     }
     else
     {
-        printf("\nLose - the solution is: %s", &solution);
+        printf("\nLose - the solution is: %s", (char*)solution);
         printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
     }
 

@@ -31,7 +31,7 @@ void printHangman(int mistakes);
   *Type 0 is a user guess
   *Type 1 is a username
   */
-void getUserInput(char *input[],int typeOf);
+void getUserInput(size_t ccount,char (*input)[ccount],int typeOf);
 
 
 /*

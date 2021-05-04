@@ -32,7 +32,7 @@ void printGameStart()
 
 }
 
-void getUserInput(char *input[],int typeOf)
+void getUserInput(size_t ccount,char (*input)[ccount],int typeOf)
 {
 
     switch(typeOf)
