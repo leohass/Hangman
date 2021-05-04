@@ -11,15 +11,17 @@ void print_game_start(){
     char rules[4][255] = {
         "The rules are simple",
         " 1. You have 7 tries",
-        " 2. Only use letters of the alphabet",
+        " 2. Only use uppercase letters of the alphabet",
         " 3. Lose"
     };
 
-    for(int i = 0; i < 3; i ++){
+    for(int i = 0; i < 3; i ++)
+    {
         printf("%s \n", welcome[i]);
     }
 
-    for(int i = 0; i < 4; i++ ){
+    for(int i = 0; i < 4; i++ )
+    {
         printf("%s \n", rules[i]);
         printf("\n");
 
@@ -27,27 +29,30 @@ void print_game_start(){
 
 }
 
-void get_user_input(char *input[],int typeOf){
+void get_user_input(char *input[],int typeOf)
+{
+    switch(typeOf)
+    {
+    case 0:
+        printf("Please enter a letter:");
+        fflush(stdin);
+        scanf("%s", input);
 
-    switch(typeOf){
-        case 0:
-            printf("pls enter a letter:");
-            fflush(stdin);
-            scanf("%s", input);
-
-            break;
-        case 1:
-            printf("pls enter your name:");
-            fflush(stdin);
-            scanf("%s", input);
-            break;
+        break;
+    case 1:
+        printf("Please enter your name:");
+        fflush(stdin);
+        scanf("%s", input);
+        break;
     }
 }
 
-int input_validation(char input[]){
-
-    if(strlen(input) == 1){
-        if((input[0] >= 'a' && input[0] <= 'z') || (input[0] >= 'A' && input[0] <= 'Z')){
+int inputValidation(char input[])
+{
+    if(strlen(input) == 1)
+    {
+        if((input[0] >= 'a' && input[0] <= 'z') || (input[0] >= 'A' && input[0] <= 'Z'))
+        {
             return 1;
         }
         printf("input must be alphabet \n");
@@ -58,15 +63,17 @@ int input_validation(char input[]){
     return 0;
 }
 
-void print_tries_left(int mistakes){
-
-    if(mistakes == 1){
+void print_tries_left(int mistakes)
+{
+    if(mistakes == 1)
+    {
         printf("\033[0;31m");
         printf("so close, you have 6 tries left \n");
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 2){
+    if(mistakes == 2)
+    {
         printf("\033[0;31m");
         printf("even a blind hen sometimes finds a grain of corn, apparently you not, you have 5 tries left \n");
         printf("\n");
@@ -78,32 +85,37 @@ void print_tries_left(int mistakes){
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 4){
+    if(mistakes == 4)
+    {
         printf("\033[0;31m");
         printf("i am running out of jokes, you have 3 tries left \n");
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 5){
+    if(mistakes == 5)
+    {
         printf("\033[0;31m");
         printf("amazon has a great margin on English dictionary's, maybe you should look into that, you have 2 tries left  \n");
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 6){
+    if(mistakes == 6)
+    {
         printf("\033[0;31m");
         printf("you never give up do you well this is your last try \n");
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 7){
+    if(mistakes == 7)
+    {
         printf("\033[0;31m");
         printf("did you juts really lose a game designed for children? \n");
         printf("\n");
         printf("\033[0m");
     }
 }
-void print_hangman(int mistakes ){
+void print_hangman(int mistakes )
+{
     char hangman[8][255] = {" \
   +---+ \n \
       | \n \
@@ -164,6 +176,7 @@ void print_hangman(int mistakes ){
     printf("%s \n", hangman[mistakes]);
 }
 
-void clear_screen(){
+void clear_screen()
+{
     system("@cls||clear");
 }
