@@ -102,7 +102,7 @@ void save_player_highscore(char name[], double time, int tries)
     sprintf(timeChar,"%f",time);
 
     char triesChar[sizeof(tries)];
-    sprintf(triesChar,"%f",tries);
+    sprintf(triesChar,"%d",tries);
 
 
     fwrite(name,1,strlen(name), file);
