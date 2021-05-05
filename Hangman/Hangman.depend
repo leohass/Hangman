@@ -1,0 +1,143 @@
+# depslib dependency file v1.0
+1618838545 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1618844365 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\gui.c
+	<stdio.h>
+
+1618843972 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+
+1618837247 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\file_system.h
+
+1618842633 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman\hangman\gui.h
+
+1620152021 source:e:\schule\hangman\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1620152508 source:e:\schule\hangman\hangman\hangman\gui.c
+	<stdio.h>
+
+1620152965 source:e:\schule\hangman\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+	<time.h>
+	<ctype.h>
+
+1620037153 e:\schule\hangman\hangman\hangman\file_system.h
+
+1620152021 e:\schule\hangman\hangman\hangman\gui.h
+
+1620152951 source:e:\schule\hangman\hangman\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1620152021 e:\schule\hangman\hangman\hangman\gameplay.h
+
+1620146739 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1620146739 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1620149087 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.c
+	<stdio.h>
+
+1620149576 source:c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+	<time.h>
+	<ctype.h>
+
+1620146739 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\file_system.h
+
+1620149101 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gui.h
+
+1620149365 c:\users\l.hasslöver\desktop\schule\programmieren\c\hangman_neu\hangman\gameplay.h
+
+1620037153 source:e:\schule\hangman\hangman\hangman\file_system.h
+
+1620034383 source:e:\schule\hangman\hangman\hangman\gameplay.h
+
+1620034383 source:e:\schule\hangman\hangman\hangman\gui.h
+
+1620225877 source:c:\users\adwi\codeblocks\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1620216864 source:c:\users\adwi\codeblocks\hangman\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1620220696 source:c:\users\adwi\codeblocks\hangman\hangman\gui.c
+	<stdio.h>
+
+1620225222 source:c:\users\adwi\codeblocks\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+	<time.h>
+	<ctype.h>
+
+1620220070 c:\users\adwi\codeblocks\hangman\hangman\file_system.h
+
+1620220695 c:\users\adwi\codeblocks\hangman\hangman\gui.h
+
+1620216053 c:\users\adwi\codeblocks\hangman\hangman\gameplay.h
+
+1620233623 source:c:\users\l.hasslöver\desktop\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1620233623 source:c:\users\l.hasslöver\desktop\hangman\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1620233623 source:c:\users\l.hasslöver\desktop\hangman\hangman\gui.c
+	<stdio.h>
+
+1620233623 source:c:\users\l.hasslöver\desktop\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+	<time.h>
+	<ctype.h>
+
+1620233623 c:\users\l.hasslöver\desktop\hangman\hangman\file_system.h
+
+1620233623 c:\users\l.hasslöver\desktop\hangman\hangman\gui.h
+
+1620233623 c:\users\l.hasslöver\desktop\hangman\hangman\gameplay.h
+
