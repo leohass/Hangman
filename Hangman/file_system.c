@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #include<stdbool.h>
 #include<time.h>
 
@@ -26,6 +27,7 @@ int get_solution_length(int id)
             return strlen(records[i].word);
         }
     }
+    return 0;
 }
 /**
   * is running over all the records to find a match in the record
@@ -46,6 +48,7 @@ char* get_solution_word(int id)
             return records[i].word;
         }
     }
+    return "false";
 }
 
 /**

@@ -1,6 +1,11 @@
 #include<stdio.h>
+#include <string.h>
 
-
+#ifdef __cplusplus__
+  #include <cstdlib>
+#else
+  #include <stdlib.h>
+#endif
 void print_game_start()
 {
     char welcome[3][255] =
@@ -39,13 +44,13 @@ void get_user_input(size_t ccount,char (*input)[ccount],int typeOf)
     case 0:
         printf("Please enter a letter:");
         fflush(stdin);
-        scanf("%s", input);
+        scanf("%s",(char*) input);
 
         break;
     case 1:
         printf("Please enter your name:");
         fflush(stdin);
-        scanf("%s", input);
+        scanf("%s",(char*) input);
         break;
     }
 }
@@ -183,5 +188,5 @@ void print_hangman(int mistakes )
 
 void clear_screen()
 {
-    system("@cls||clear");
+    if (system("CLS")) system("clear");
 }

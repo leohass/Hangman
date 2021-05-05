@@ -6,7 +6,7 @@
 
 #include<stdio.h>
 #include<string.h>
-
+#include "gui.h"
 /**
  * Outputs the Solution with correct guessed letters
  * and underscores for unguessed letters.
@@ -107,7 +107,7 @@ void handle_guess(int *tries,
     if (mistakeMade == 1)
     {
         ++(*mistakes);
-        print_tries_left(mistakes);
+        print_tries_left(*mistakes);
     }
 }
 
