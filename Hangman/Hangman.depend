@@ -83,3 +83,32 @@
 
 1620034383 source:e:\schule\hangman\hangman\hangman\gui.h
 
+1620217542 source:c:\users\adwi\codeblocks\hangman\hangman\file_system.c
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	<time.h>
+
+1620216864 source:c:\users\adwi\codeblocks\hangman\hangman\gameplay.c
+	<stdio.h>
+	<string.h>
+
+1620216901 source:c:\users\adwi\codeblocks\hangman\hangman\gui.c
+	<stdio.h>
+
+1620217521 source:c:\users\adwi\codeblocks\hangman\hangman\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"file_system.h"
+	"gui.h"
+	"gameplay.h"
+	<time.h>
+	<ctype.h>
+
+1620217517 c:\users\adwi\codeblocks\hangman\hangman\file_system.h
+
+1620216864 c:\users\adwi\codeblocks\hangman\hangman\gui.h
+
+1620216053 c:\users\adwi\codeblocks\hangman\hangman\gameplay.h
+

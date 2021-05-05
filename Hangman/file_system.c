@@ -86,23 +86,15 @@ int get_random_solution_id()
   *
   *
   * @param char name[], the playerName
-  * @param double pointsNumber, the time
+  * @param double time, the time
+  * @param int tries, the tries
   *
 **/
-void save_player_highscore(char name[], double pointsNumber)
+void save_player_highscore(char name[], double time, int tries)
 {
     FILE* file = fopen("resources/playerHighscore.csv", "a+");
 
-    char simi[] = ";";
-    char endline[] = "\n";
-
-    char points[sizeof(pointsNumber)];
-    sprintf(points,"%f",pointsNumber);
-
-    fwrite(name,1,strlen(name), file);
-    fwrite(simi,1,strlen(simi), file);
-    fwrite(points,1,strlen(points), file);
-    fwrite(endline,1,strlen(endline), file);
+    fprintf(file,"%s;%f;%i\n",name, time, tries);
 
     fclose(file);
 }

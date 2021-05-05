@@ -110,7 +110,7 @@ int main()
         printf("\nYour time was: %f seconds!", time_spent / CLOCKS_PER_SEC);
     }
 
-    save_player_highscore(player1,time_spent / CLOCKS_PER_SEC);
+    save_player_highscore(player1,time_spent / CLOCKS_PER_SEC, tries);
 
     return 0;
 }
