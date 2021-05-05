@@ -56,7 +56,7 @@ int main()
 
     print_game_start();
 
-    get_user_input(&player1,1);
+    get_user_input(strlen(player1),&player1,1);
 
     clock_t begin = clock();
 
@@ -78,9 +78,9 @@ int main()
 
         do
         {
-            get_user_input(&input,0);
+            get_user_input(strlen(player1),&input,0);
         }
-        while(!inputValidation(input));
+        while(!input_validation(input));
 
         clear_screen();
 

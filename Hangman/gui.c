@@ -1,14 +1,17 @@
 #include<stdio.h>
 
 
-void print_game_start(){
-    char welcome[3][255] ={
-     " +-++-++-++-++-++-++-+ +-++-+ +-++-++-++-++-++-++-+ ",
-     " |W||e||l||c||o||m||e| |T||o| |H||a||n||g||m||a||n| ",
-     " +-++-++-++-++-++-++-+ +-++-+ +-++-++-++-++-++-++-+ "
+void print_game_start()
+{
+    char welcome[3][255] =
+    {
+        " +-++-++-++-++-++-++-+ +-++-+ +-++-++-++-++-++-++-+ ",
+        " |W||e||l||c||o||m||e| |T||o| |H||a||n||g||m||a||n| ",
+        " +-++-++-++-++-++-++-+ +-++-+ +-++-++-++-++-++-++-+ "
     };
 
-    char rules[4][255] = {
+    char rules[4][255] =
+    {
         "The rules are simple",
         " 1. You have 7 tries",
         " 2. Only use uppercase letters of the alphabet",
@@ -29,7 +32,7 @@ void print_game_start(){
 
 }
 
-void get_user_input(char *input[],int typeOf)
+void get_user_input(size_t ccount,char (*input)[ccount],int typeOf)
 {
     switch(typeOf)
     {
@@ -47,7 +50,7 @@ void get_user_input(char *input[],int typeOf)
     }
 }
 
-int inputValidation(char input[])
+int input_validation(char input[])
 {
     if(strlen(input) == 1)
     {
@@ -79,7 +82,8 @@ void print_tries_left(int mistakes)
         printf("\n");
         printf("\033[0m");
     }
-    if(mistakes == 3){
+    if(mistakes == 3)
+    {
         printf("\033[0;31m");
         printf("better luck next time, you have 4 tries left \n");
         printf("\n");
@@ -172,7 +176,8 @@ void print_hangman(int mistakes )
  /|\\  | \n \
  / \\  | \n \
       | \n \
-========="};
+========="
+                           };
     printf("%s \n", hangman[mistakes]);
 }
 

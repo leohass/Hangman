@@ -15,4 +15,6 @@ char* get_solution_word(int id);
 
 void save_player_highscore(char playerName[], double time, int tries);
 
+void print_highscore_list();
+
 #endif // FILE_SYSTEM_H_INCLUDED
