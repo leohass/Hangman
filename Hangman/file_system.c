@@ -9,16 +9,7 @@ struct solution
     char word[255];
 };
 
-struct highscore
-{
-    char name[255];
-    double time;
-    int tries;
-};
-
 struct solution records[1000];
-
-struct highscore higscoreList[1000];
 
 /**
  * returns the length of the solution word
@@ -74,19 +65,7 @@ int get_random_solution_id()
         if (got != 2) break; // wrong number of tokens - maybe end of file
     }
     srand(time(NULL));
-    int amountSolutions = 0;
-    while(true)
-    {
-        if (records[amountSolutions].id != NULL)
-        {
-            amountSolutions++;
-        }
-        else
-        {
-            break;
-        }
-    }
-    int number = (rand()% amountSolutions);
+    int number = (rand()% count);
     fclose(file);
     return records[number].id;
 }
@@ -103,19 +82,7 @@ void save_player_highscore(char name[], double time, int tries)
 {
     FILE* file = fopen("resources/playerHighscore.csv", "a+");
 
-    fprintf(file,"%s;%f;%i\n",name, time, tries);
+    fprintf(file,"%f;%i;%s\n",time, tries, name);
 
     fclose(file);
-}
-
-void print_highscore_list()
-{
-    FILE* file = fopen("resources/playerHighscore.csv", "r");
-
-    size_t count = 0;
-    for (; count < sizeof(records)/sizeof(records[0]); ++count)
-    {
-        int got = fscanf(file, "%s;%f;%i", (char*) &higscoreList[count].name, (double*) &higscoreList[count].time, (int*) &higscoreList[count].tries);
-        if (got != 2) break; // wrong number of tokens - maybe end of file
-    }
 }
